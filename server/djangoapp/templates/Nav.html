@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Best Cars</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/djangoapp">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/djangoapp/about">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/djangoapp/contact">Contact Us</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" style="color: rgb(43, 238, 238);" href="#">{{ user.username }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  style="color: rgb(43, 238, 238);" href="logout/">Logout</a>
+            </li>
+            {% else %}
+                <li>
+                        <a class="btn btn-link" href="/djangoapp/login/">Sign In</a>
+                        <a class="btn btn-link" href="/djangoapp/signup/">Sign Up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
